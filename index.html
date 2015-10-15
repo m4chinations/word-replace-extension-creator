@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Make a word replacement extension</title>
+    <style>
+        input {
+            display: block;
+        }
+        .simplesearch > input {
+            display: inline;
+        }
+        .regexsearch > input {
+            display: inline;
+        }
+        .simplesearch {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Enter search & replace query (or regex)</h1>
+    <button name="simple">Add search & replace</button> <button name="regex">Add regex</button> 
+    <button id='submit' name='submit'>Generate Extensions</button>
+    <p>Search & Replace queries are case sensitive. The first input is what will be searched for (cloud) and the second input is what will be replaced (butt). </p>
+    <p>For Search & Replace queries, only whole words are matched. That is, if you want to replace cloud with butt, the string "Clouds are made of cloud groups" it will turn into "Clouds are made of butt groups". The plural clouds was not matched because it was not the whole word being searched for. To avoid this, use the regex filter.</p>
+    <p>Blank values won't be used. Downloads will appear below after generation.</p>
+    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+    <script src="assets/js.js"></script>
+</body>
+</html>
