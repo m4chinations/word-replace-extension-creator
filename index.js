@@ -16,11 +16,4 @@ app.post('/post', function (req, res) {
 });
 
 
-function jsFromForm() {
-
-}
-
-
-
-
 var server = app.listen(3000, function() {});
