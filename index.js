@@ -54,7 +54,7 @@ app.post('/post', function (req, res) {
         replace({
             regex: 'CONTENT',
             replacement: req.body.payload,
-            paths: [ff_dir.slice(2)],
+            paths: [chrome_dir.slice(2)],
             recursive: true,
             silent: false
         });
@@ -62,9 +62,9 @@ app.post('/post', function (req, res) {
         app.get('/'+chrome_dir.slice(12), function (req, res) {
             res.sendFile(chrome_dir + '.zip', { root : '.' });
             setTimeout(function() {
-                rimraf(ff_dir);
+                rimraf(chrome_dir);
                 for(i = 0; i < app.routes.get.length; i++){
-                    if(app.routes.get[i].path === '/'+ff_dir.slice(7)){
+                    if(app.routes.get[i].path === '/'+chrome_dir.slice(7)){
                         app.routes.get.splice(i,1); 
                     }
                 }
