@@ -36,7 +36,7 @@ app.post('/post', function (req, res) {
         app.get('/'+ff_dir.slice(7), function (req, res) {
             res.sendFile('@firefox-0.0.1.xpi', { root : ff_dir });
             setTimeout(function() {
-                rimraf(ff_dir);
+                rimraf(ff_dir, function() {});
                 for(i = 0; i < app.routes.get.length; i++){
                     if(app.routes.get[i].path === '/'+ff_dir.slice(7)){
                         app.routes.get.splice(i,1); 
