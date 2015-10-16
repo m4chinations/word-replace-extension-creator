@@ -37,11 +37,6 @@ app.post('/post', function (req, res) {
             res.sendFile('@firefox-0.0.1.xpi', { root : ff_dir });
             setTimeout(function() {
                 rimraf(ff_dir, function() {});
-                for(i = 0; i < app.routes.get.length; i++){
-                    if(app.routes.get[i].path === '/'+ff_dir.slice(7)){
-                        app.routes.get.splice(i,1); 
-                    }
-                }
             }, 30000);
         });
         console.log("---DONE. Serving XPI---");
@@ -63,11 +58,6 @@ app.post('/post', function (req, res) {
             res.sendFile(chrome_dir + '.zip', { root : '.' });
             setTimeout(function() {
                 rimraf(chrome_dir);
-                for(i = 0; i < app.routes.get.length; i++){
-                    if(app.routes.get[i].path === '/'+chrome_dir.slice(7)){
-                        app.routes.get.splice(i,1); 
-                    }
-                }
             }, 30000);
         });
     });
