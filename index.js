@@ -80,4 +80,6 @@ RegExp.escape = function(text) {
 };
 
 
-var server = app.listen(3000, function() {});
+var port = process.env.PORT || 8080;
+
+var server = app.listen(port, function() {});
