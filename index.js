@@ -34,7 +34,7 @@ app.post('/post', function (req, res) {
         exec('cd '+ff_dir+' && jpm xpi', function() {
         });
         app.get('/'+ff_dir.slice(7), function (req, res) {
-            res.sendFile('@firefox-0.0.1.xpi', { root : ff_dir });
+            res.sendFile(ff_dir+'/@firefox-0.0.1.xpi', { root : '.' });
             setTimeout(function() {
                 rimraf(ff_dir, function() {});
             }, 30000);
