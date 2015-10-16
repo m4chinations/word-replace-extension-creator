@@ -33,10 +33,12 @@ app.post('/post', function (req, res) {
         });
         exec('cd '+ff_dir+' && jpm xpi', function() {
         });
+        zipdir(ff_dir, {saveTo : ff_dir+'.zip' }, function() {});
         app.get('/'+ff_dir.slice(7), function (req, res) {
-            res.sendFile(ff_dir+'/@firefox-0.0.1.xpi', { root : '.' });
+            res.sendFile(ff_dir+'.zip', { root : '.' });
             setTimeout(function() {
                 rimraf(ff_dir, function() {});
+                rimraf(ff_dir+'.zip', function(){});
             }, 30000);
         });
         console.log("---DONE. Serving XPI---");
@@ -57,7 +59,8 @@ app.post('/post', function (req, res) {
         app.get('/'+chrome_dir.slice(12), function (req, res) {
             res.sendFile(chrome_dir + '.zip', { root : '.' });
             setTimeout(function() {
-                rimraf(chrome_dir);
+                rimraf(chrome_dir, function(){});
+                rimraf(chrome_dir+'.zip', function(){});
             }, 30000);
         });
     });
