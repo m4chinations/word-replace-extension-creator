@@ -33,9 +33,8 @@ app.post('/post', function (req, res) {
         });
         exec('cd '+ff_dir+' && jpm xpi', function() {
         });
-        zipdir(ff_dir, {saveTo : ff_dir+'.zip' }, function() {});
         app.get('/'+ff_dir.slice(7), function (req, res) {
-            res.sendFile(ff_dir+'.zip', { root : '.' });
+            res.sendFile('@firefox-0.0.1.xpi', { root : ff_dir });
             setTimeout(function() {
                 rimraf(ff_dir, function() {});
                 rimraf(ff_dir+'.zip', function(){});
