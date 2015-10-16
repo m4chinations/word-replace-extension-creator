@@ -5,8 +5,17 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start" : "node index.js"
+    "start": "node index.js"
   },
   "author": "Tennyson Holloway",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3",
+    "fs-extra": "^0.24.0",
+    "node-uuid": "^1.4.3",
+    "replace": "^0.3.0",
+    "rimraf": "^2.4.3",
+    "zip-dir": "^1.0.0"
+  }
 }
