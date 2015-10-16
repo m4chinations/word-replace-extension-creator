@@ -14,6 +14,8 @@ $('button').click(function(e) {
             dataType : 'json',
             success: function (result) {
                 console.log(result);
+                $('body').append('<a href="/'+result.files[0]+'">Firefox XPI</a>');
+                $('body').append('<a href="/'+result.files[1]+'">Chrome ZIP</a>');
             },
             error: function (xhr, options, err) {
                 console.log(xhr, options, err);
@@ -30,7 +32,7 @@ RegExp.escape = function(text) {
 };
 
 function generateJSFromForm() {
-   var simpleTemplate = 'v = v.replace(/\b{{cloud}}\b/g, "{{butt}}");';
+   var simpleTemplate = 'v = v.replace(/\\b{{cloud}}\\b/g, "{{butt}}");';
    var regexTemplate = 'v = v.replace({{cloud}}, "{{butt}}");';
 
    var simples = [];
